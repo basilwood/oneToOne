@@ -4,7 +4,13 @@
 
 /** First receive has to be called and then send */
 
+import com.nimbusds.jose.JOSEException;
+import com.nimbusds.jose.proc.BadJOSEException;
+
+import java.net.MalformedURLException;
+import java.text.ParseException;
 import java.util.*;
+import java.util.logging.Logger;
 
 import javax.json.JsonObject;
 import javax.ws.rs.*;
@@ -23,6 +29,21 @@ public class HttpProcessor {
 
 
     public static HashMap <String, Object> userPairMap = new HashMap <String, Object>();
+
+    @Path( "/authenticate" )
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes (MediaType.APPLICATION_JSON)
+    public String authenticate(JsonObject message) throws MalformedURLException, BadJOSEException, ParseException, JOSEException {
+        Logger logger = Logger.getLogger( getClass().getName() );
+        logger.info( "abc123");
+        Authentication authentication = new Authentication();
+        authentication.authenticate( message );
+        //JpaTest jpaTest = new JpaTest();
+        //String returnValue = jpaTest.returnSomething();
+        //return "The auth message is "+ authMessage + "The return from database is "+ returnValue;
+        return "authenticated and saved in db";
+    }
 
 
     @Path("/send")
@@ -61,5 +82,12 @@ public class HttpProcessor {
             userPairMap.put( id, onetoOneMessagesOrganizer );
             onetoOneMessagesOrganizer.getMessagesFromTheQueue(async, message);
         }
+    }
+
+    @Path( "/get" )
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String testMessage(){
+        return "Hello from onetoone";
     }
 }

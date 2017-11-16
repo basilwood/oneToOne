@@ -7,6 +7,7 @@ class OnetoOneMessagesOrganizer {
 
     HashMap <String, PriorityQueue> asyncMap = new HashMap <String, PriorityQueue>();
     HashMap <String, PriorityQueue> messageRouter = new HashMap <String, PriorityQueue>();
+    public static JsonObject jsonMessage;
 
     public String putMessageInTheQueue( JsonObject message ) {
         String from = message.getString( "from" );

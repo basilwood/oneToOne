@@ -1,3 +1,6 @@
-OnetoOneMessagesOrganizer.class
+JpaTest.class
 OnetooneApplication.class
+Todo.class
+OnetoOneMessagesOrganizer.class
+Authentication.class
 HttpProcessor.class
