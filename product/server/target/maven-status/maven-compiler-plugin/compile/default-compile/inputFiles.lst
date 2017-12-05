@@ -1,4 +1,7 @@
-/Users/ajuvignesh/glassfish4/onetoone/src/main/java/OnetooneApplication.java
-/Users/ajuvignesh/glassfish4/onetoone/src/main/java/SafeContainer.java
-/Users/ajuvignesh/glassfish4/onetoone/src/main/java/ReplyMessage.java
-/Users/ajuvignesh/glassfish4/onetoone/src/main/java/HttpProcessor.java
+/Users/ajuvignesh/my-work-area/oneToOne/product/server/src/main/java/com/onetoone/store/User.java
+/Users/ajuvignesh/my-work-area/oneToOne/product/server/src/main/java/com/onetoone/service/ShareLinkHandler.java
+/Users/ajuvignesh/my-work-area/oneToOne/product/server/src/main/java/com/onetoone/store/UserManager.java
+/Users/ajuvignesh/my-work-area/oneToOne/product/server/src/main/java/com/onetoone/service/HttpProcessor.java
+/Users/ajuvignesh/my-work-area/oneToOne/product/server/src/main/java/com/onetoone/service/Authenticator.java
+/Users/ajuvignesh/my-work-area/oneToOne/product/server/src/main/java/com/onetoone/service/OnetooneApplication.java
+/Users/ajuvignesh/my-work-area/oneToOne/product/server/src/main/java/com/onetoone/service/OnetoOneMessagesOrganizer.java

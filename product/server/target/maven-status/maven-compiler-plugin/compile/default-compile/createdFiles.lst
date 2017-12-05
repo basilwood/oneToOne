@@ -1,6 +1,7 @@
-JpaTest.class
-OnetooneApplication.class
-Todo.class
-OnetoOneMessagesOrganizer.class
-Authentication.class
-HttpProcessor.class
+com/onetoone/service/HttpProcessor.class
+com/onetoone/store/User.class
+com/onetoone/store/UserManager.class
+com/onetoone/service/Authenticator.class
+com/onetoone/service/OnetoOneMessagesOrganizer.class
+com/onetoone/service/OnetooneApplication.class
+com/onetoone/service/ShareLinkHandler.class
