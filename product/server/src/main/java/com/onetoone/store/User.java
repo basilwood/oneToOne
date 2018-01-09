@@ -10,6 +10,8 @@ public class User {
     private String Partneremail;
     private String sharedCode;
 
+    private String uniqueCoupleId;
+
     public String getName() {
         return name;
     }
@@ -42,9 +44,18 @@ public class User {
         Partneremail = partneremail;
     }
 
+
+    public String getUniqueCoupleId() {
+        return uniqueCoupleId;
+    }
+
+    public void setUniqueCoupleId( String uniqueCoupleId ) {
+        this.uniqueCoupleId = uniqueCoupleId;
+    }
+
     @Override
     public String toString() {
-        return "User [emaail=" + email + ", name=" + name
+        return "User [email=" + email + ", name=" + name
                 + "]";
     }
 

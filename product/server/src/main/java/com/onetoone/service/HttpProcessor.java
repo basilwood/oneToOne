@@ -41,9 +41,13 @@ public class HttpProcessor {
         logger.info( "abc123");
         Authenticator Authenticator = new Authenticator();
         try {
+            logger = Logger.getLogger( getClass().getName() );
+            logger.info( "before authenticate");
             Authenticator.authenticate( message );
             return Response.ok().build();
         } catch (Exception e){
+            logger = Logger.getLogger( getClass().getName() );
+            logger.info( "exception" + e);
             return Response.status( Response.Status.FORBIDDEN ).entity( "Message from authentication" ).build();
         }
     }
@@ -114,8 +118,8 @@ public class HttpProcessor {
     public Response verifyThePartner( String encryptedCode) throws MalformedURLException {
         UserManager userManager = new UserManager();
         try {
-            userManager.addPartnerIdToTheUser( encryptedCode );
-            return Response.status(Response.Status.OK).build();
+            String returnMailId = userManager.addPartnerIdToTheUser( encryptedCode );
+            return Response.status(Response.Status.OK).entity( "validated" + returnMailId ).build();
         }
         catch (Exception e){
             return Response.status( Response.Status.FORBIDDEN ).entity( "The error is from validate" ).build();
@@ -127,5 +131,20 @@ public class HttpProcessor {
     @Produces(MediaType.TEXT_PLAIN)
     public String testMessage(){
         return "Hello from onetoone";
+    }
+
+    @Path( "/findid" )
+    @POST
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.TEXT_PLAIN)
+    public Response findUniqueId( String mailId) throws MalformedURLException {
+        try {
+            UserManager userManager = new UserManager();
+            String uniqueId = userManager.findUniqueId( mailId );
+            return Response.status(Response.Status.OK).entity( uniqueId ).build();
+        }
+        catch (Exception e){
+            return Response.status( Response.Status.FORBIDDEN ).entity( "The error is from findUniqueId" ).build();
+        }
     }
 }

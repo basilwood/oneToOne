@@ -34,9 +34,11 @@ public class Authenticator {
 
 
     public void authenticate( JsonObject message ) throws MalformedURLException, ParseException, BadJOSEException, JOSEException {
-        String idToken = message.getString( "idToken" );
         Logger logger = Logger.getLogger( getClass().getName() );
-        logger.info( String.format("The idetoken is %1i",idToken));
+        logger.info( "before getting idToken");
+        String idToken = message.getString( "idToken" );
+//        logger = Logger.getLogger( getClass().getName() );
+//        logger.info( String.format("The idetoken is %1i",idToken));
         // Parse the ID token
         JWT idTok = JWTParser.parse( idToken );
 
@@ -48,6 +50,9 @@ public class Authenticator {
             name = claims.getStringClaim("name");
             email = claims.getStringClaim( "email" );
             picture = claims.getStringClaim("picture");
+
+            logger = Logger.getLogger( getClass().getName() );
+            logger.info( String.format("The emaaail is" + email));
 
             UserManager UserManager = new UserManager();
             UserManager.signUp(name,email);
